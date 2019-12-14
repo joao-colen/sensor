@@ -22,6 +22,14 @@ export class SensorsService {
         );
     }
 
+    getSensor(id: string): Observable<any> {
+      const url = this.baseUrl + '/sensors/' + id;
+      return this.http.get(url)
+        .pipe(
+          catchError(this.errorHandler)
+        );
+    }
+
     // Error handling
     errorHandler(error: any) {
       let errorMessage = '';

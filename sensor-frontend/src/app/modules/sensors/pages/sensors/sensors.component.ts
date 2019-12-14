@@ -1,5 +1,7 @@
 import { Component, OnInit, HostListener, ViewChild } from '@angular/core';
 import { SensorsService } from '../../services/sensors.service';
+import { SensorComponent } from '../sensor/sensor.component';
+import { MatDialog } from '@angular/material';
 
 export interface SensorElement {
   id: number;
@@ -20,7 +22,7 @@ export interface SensorElement {
 export class SensorsComponent implements OnInit {
 
   sensors: any[];
-    constructor(private sensorService: SensorsService) {
+    constructor(private sensorService: SensorsService, public dialog: MatDialog) {
   }
 
   displayedColumns: string[] = ['id', 'height', 'width', 'length', 'voltage', 'brand', 'type'];
@@ -31,6 +33,16 @@ export class SensorsComponent implements OnInit {
       this.sensors = res; 
     });
     
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(SensorComponent, {
+      height: '350px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
 }

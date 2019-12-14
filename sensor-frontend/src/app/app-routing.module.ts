@@ -6,7 +6,7 @@ import { SensorComponent } from './modules/sensors/pages/sensor/sensor.component
 
 const routes: Routes = [
   {'path': 'sensors', component: SensorsComponent},
-  {'path': 'sensor', component: SensorComponent},
+  { path: 'sensors/:id', component: SensorComponent },
   { path: '', redirectTo: 'sensors', pathMatch: 'full' },
   { path: '**', redirectTo: 'sensors', pathMatch: 'full' },
 ];

@@ -28,51 +28,23 @@
 
   <!-- Sensors-->
   <div class="pb-5">
-    <table mat-table [dataSource]="sensors" class="mat-elevation-z8">
-      <!-- Id Column -->
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef> No. </th>
-        <td mat-cell *matCellDef="let sensors"> {{sensors.id}} </td>
-      </ng-container>
-
-      <!-- Height Column -->
-      <ng-container matColumnDef="height">
-        <th mat-header-cell *matHeaderCellDef> Altura </th>
-        <td mat-cell *matCellDef="let sensors"> {{sensors.altura}} </td>
-      </ng-container>
-    
-      <!-- Width Column -->
-      <ng-container matColumnDef="width">
-        <th mat-header-cell *matHeaderCellDef> Largura </th>
-        <td mat-cell *matCellDef="let sensors"> {{sensors.largura}} </td>
-      </ng-container>
-    
-      <!-- Length Column -->
-      <ng-container matColumnDef="length">
-        <th mat-header-cell *matHeaderCellDef> Comprimento </th>
-        <td mat-cell *matCellDef="let sensors"> {{sensors.comprimento}} </td>
-      </ng-container>
-    
-      <!-- Voltage Column -->
-      <ng-container matColumnDef="voltage">
-        <th mat-header-cell *matHeaderCellDef> Tensão </th>
-        <td mat-cell *matCellDef="let sensors"> {{sensors.tensao}} </td>
-      </ng-container>
-
-      <!-- Brand Column -->
-      <ng-container matColumnDef="brand">
-        <th mat-header-cell *matHeaderCellDef> Marca </th>
-        <td mat-cell *matCellDef="let sensors"> {{sensors.marca}} </td>
-      </ng-container>
-
-      <!-- Type Column -->
-      <ng-container matColumnDef="type">
-        <th mat-header-cell *matHeaderCellDef> Tipo </th>
-        <td mat-cell *matCellDef="let sensors"> {{sensors.tipo}} </td>
-      </ng-container>
-    
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <table mdbTable>
+      <thead class="black white-text">
+        <tr>
+          <th *ngFor="let head of displayedColumns" scope="col">{{head}} </th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr mdbTableCol *ngFor="let sensor of sensors" (click)="openDialog()" [routerLink]="[sensor.id]" >
+            <th scope="row">{{sensor.id}}</th>
+            <td>{{sensor.altura}}</td >
+            <td>{{sensor.largura}}</td>
+            <td>{{sensor.comprimento}}</td>
+            <td>{{sensor.tensao}}</td>
+            <td>{{sensor.marca}}</td>
+            <td>{{sensor.tipo}}</td>
+          </tr>
+      </tbody>
     </table>
   </div>
   
