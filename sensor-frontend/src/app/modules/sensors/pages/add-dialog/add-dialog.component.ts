@@ -22,6 +22,9 @@ export class AddDialogComponent implements OnInit {
       Marca: 'A1',
       Tamanho: 'A',
       Tipo: 'temperatura',
+      Medida: '',
+      Latitude: '',
+      Longitude: '',
     });
   }
 
@@ -29,6 +32,7 @@ export class AddDialogComponent implements OnInit {
     let altura: any;
     let largura: any;
     let comprimento: any;
+    
     if(this.options.get('Tamanho').value == 'A') {
       altura = 3;
       largura = 3;
@@ -40,12 +44,15 @@ export class AddDialogComponent implements OnInit {
     }
 
     const body = {
-      tensao: parseInt(this.options.get('Tensao').value),
+      tensao: parseFloat(this.options.get('Tensao').value),
       tipo:this.options.get('Tipo').value,
       altura: altura,
       largura: largura,
       comprimento: comprimento,
-      marca: this.options.get('Marca').value
+      marca: this.options.get('Marca').value,
+      valor_medido: this.options.get('Medida').value,
+      latitude: this.options.get('Latitude').value,
+      longitude: this.options.get('Longitude').value
     }
 
     console.log(body);

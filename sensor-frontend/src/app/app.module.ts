@@ -9,7 +9,7 @@ import { SensorsComponent } from './modules/sensors/pages/sensors/sensors.compon
 import { SensorComponent } from './modules/sensors/pages/sensor/sensor.component';
 import { DeleteDialogComponent } from './modules/sensors/pages/delete-dialog/delete-dialog.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { AgmCoreModule } from '@agm/core';
 import { MatAutocompleteModule, MatCheckboxModule, MatDatepickerModule, MatFormFieldModule, MatInputModule, MatRadioModule, MatSelectModule, MatSliderModule, MatSlideToggleModule, MatMenuModule, MatSidenavModule, MatToolbarModule, MatCardModule, MatDividerModule, MatExpansionModule, MatGridListModule, MatListModule, MatStepperModule, MatTabsModule, MatTreeModule, MatButtonModule, MatButtonToggleModule, MatBadgeModule, MatChipsModule, MatIconModule, MatProgressSpinnerModule, MatProgressBarModule, MatBottomSheetModule, MatSnackBarModule, MatTooltipModule, MatPaginatorModule, MatSortModule, MatRippleModule, MatDialogModule, MatTableModule } from '@angular/material';
 import { AddDialogComponent } from './modules/sensors/pages/add-dialog/add-dialog.component';
 import { EditDialogComponent } from './modules/sensors/pages/edit-dialog/edit-dialog.component';
@@ -70,7 +70,11 @@ import { EditDialogComponent } from './modules/sensors/pages/edit-dialog/edit-di
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyA2Ah5NNK8geVaSU_k7Dz99AuakLTvsOYY',
+      libraries: ['places']
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

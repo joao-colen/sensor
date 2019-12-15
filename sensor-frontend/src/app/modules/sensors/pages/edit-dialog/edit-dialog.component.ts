@@ -19,6 +19,9 @@ export class EditDialogComponent implements OnInit {
       Marca: data.marca,
       Tamanho: data.tamanho,
       Tipo: data.tipo,
+      Medida: data.valor_medido,
+      Latitude: data.latitude,
+      Longitude: data.longitude
     });
     this.sensorID = data.id;
   }
@@ -41,13 +44,17 @@ export class EditDialogComponent implements OnInit {
     }
 
     const body = {
-      tensao: parseInt(this.options.get('Tensao').value),
+      tensao: parseFloat(this.options.get('Tensao').value),
       tipo:this.options.get('Tipo').value,
       altura: altura,
       largura: largura,
       comprimento: comprimento,
-      marca: this.options.get('Marca').value
+      marca: this.options.get('Marca').value,
+      valor_medido: this.options.get('Medida').value,
+      latitude: this.options.get('Latitude').value,
+      longitude: this.options.get('Longitude').value
     }
+    console.log(body);
     this.sensorService.editSensor(this.sensorID, body).subscribe((res) => {
       this.dialogRef.close();
     });

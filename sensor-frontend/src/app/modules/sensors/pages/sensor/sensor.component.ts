@@ -48,7 +48,10 @@ export class SensorComponent implements OnInit {
       tamanho: tamanho,
       marca: this.sensor.marca,
       tipo: this.sensor.tipo,
-      tensao: this.sensor.tensao
+      tensao: this.sensor.tensao,
+      valor_medido: this.sensor.ultima_medida,
+      latitude: this.sensor.latitude,
+      longitude: this.sensor.longitude
     };
 
     const dialogRef = this.dialog.open(EditDialogComponent, dialogConfig);

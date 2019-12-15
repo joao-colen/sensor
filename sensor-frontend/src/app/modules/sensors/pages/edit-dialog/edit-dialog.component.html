@@ -34,6 +34,27 @@
             </mat-radio-group>
         </div>
         <div>
+            <label>Digite o valor medido do sensor: </label>
+            <mat-form-field style="padding-left: 1%; width: 75%;">
+                <mat-label>Valor medido do sensor</mat-label>
+                <input type="number" matInput formControlName="Medida" placeholder="Valor medido do sensor">
+            </mat-form-field>    
+        </div>
+        <div>
+            <label>Digite a latitude: </label>
+            <mat-form-field style="padding-left: 1%; width: 87%;">
+                <mat-label>Valor da latitude do sensor</mat-label>
+                <input type="number" matInput formControlName="Latitude" placeholder="Valor da latitude do sensor">
+            </mat-form-field>    
+        </div>
+        <div>
+            <label>Digite a longitude: </label>
+            <mat-form-field style="padding-left: 1%; width: 86%;">
+                <mat-label>Valor da longitude do sensor</mat-label>
+                <input type="number" matInput formControlName="Longitude" placeholder="Valor da longitude do sensor">
+            </mat-form-field>
+        </div>
+        <div>
             <button class="btn btn-primary" (click)="editSensor()" [routerLink]="[sensors]"> Editar sensor</button>
         </div>
     </form>

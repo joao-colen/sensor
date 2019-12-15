@@ -14,19 +14,16 @@
   </div>
   
   <div class= "container">
-    <!-- Search -->
-    <div class="content-container d-flex justify-content-center">
-      <div class="d-flex align-items-center" style="width: 80%;">
-        <div class="d-flex align-items-center pr-3" style ="width: 5%">
-          <mat-icon>search</mat-icon>
-        </div>
-        <div style ="width: 95%">
-          <mat-form-field class="search-input" style="width: 100%;">
-            <input matInput placeholder="Search">
-          </mat-form-field>
+    <div class="row">
+      <div class="col-md-12 mx-auto">
+        <div class="md-form">
+          <input type="text" [(ngModel)]="searchText" class="form-control" id="search" mdbInput/>
+          <label for="search">Search</label>
         </div>
       </div>
     </div>
+    <!-- Search -->
+
   
     <!-- Sensors-->
     <div class="pb-5">
