@@ -29,7 +29,7 @@ export class SensorsComponent implements OnInit {
   ) 
   mdbTable: MdbTableDirective; 
   elements: any = []; 
-  headElements = ['id', 'height', 'width', 'length', 'voltage', 'brand', 'type']; 
+  headElements = ['id', 'Marca', 'Tipo','Última Medida', 'Endereço']; 
   searchText: string = ''; 
   previous: string;
   sensors: any[];
@@ -41,7 +41,7 @@ export class SensorsComponent implements OnInit {
     this.searchItems();
   }
   
-  displayedColumns: string[] = ['id', 'height', 'width', 'length', 'voltage', 'brand', 'type'];
+  displayedColumns: string[] = ['id', 'Marca', 'Tipo', 'Última Medida', 'Endereço'];
   dataSource = this.sensors;
   
   ngOnInit() {

@@ -23,8 +23,8 @@
   <div class="pb-5">
     <mat-card class="p-5">
       <div class="d-flex justify-content-between pb-5">
-        <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" >
-          <agm-marker [latitude]="latitude"  [longitude]="longitude"></agm-marker>
+        <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+          <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
         </agm-map>
       </div>
       <div class="px-4">
@@ -62,6 +62,8 @@
                         <th scope="col">Comprimento</th>
                         <th scope="col">Tensão</th>
                         <th scope="col">Marca</th>
+                        <th scope="col">Ultima medida</th>
+                        <th scope="col">Endereço</th>
                         <th scope="col">Editar</th>
                         <th scope="col">Excluir</th>
                       </tr>
@@ -73,6 +75,8 @@
                           <td>{{sensor.comprimento}}</td>
                           <td>{{sensor.tensao}}</td>
                           <td>{{sensor.marca}}</td>
+                          <td>{{sensor.ultima_medida}}</td>
+                          <td>{{sensor.endereco}}</td>
                           <td><mat-icon class="add-house-icon" (click)="dialogEdit()">edit</mat-icon></td>
                           <td><mat-icon class="add-house-icon" (click)="dialogDelete()">clear</mat-icon></td>
                         </tr>

@@ -14,14 +14,7 @@
   </div>
   
   <div class= "container">
-    <div class="row">
-      <div class="col-md-12 mx-auto">
-        <div class="md-form">
-          <input type="text" [(ngModel)]="searchText" class="form-control" id="search" mdbInput/>
-          <label for="search">Search</label>
-        </div>
-      </div>
-    </div>
+
     <!-- Search -->
 
   
@@ -36,12 +29,10 @@
         <tbody>
             <tr mdbTableCol *ngFor="let sensor of sensors" [routerLink]="[sensor.id]" >
               <th scope="row">{{sensor.id}}</th>
-              <td>{{sensor.altura}}</td >
-              <td>{{sensor.largura}}</td>
-              <td>{{sensor.comprimento}}</td>
-              <td>{{sensor.tensao}}</td>
-              <td>{{sensor.marca}}</td>
+              <td>{{sensor.marca}}</td >
               <td>{{sensor.tipo}}</td>
+              <td>{{sensor.ultima_medida}}</td>
+              <td>{{sensor.endereco}}</td>
             </tr>
         </tbody>
       </table>

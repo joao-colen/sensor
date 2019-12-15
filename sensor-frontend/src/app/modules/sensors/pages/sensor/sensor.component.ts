@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SensorsService } from '../../services/sensors.service';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 import { EditDialogComponent } from '../edit-dialog/edit-dialog.component';
 import { SensorsComponent } from '../sensors/sensors.component';
 import {MatDialog, MatDialogConfig} from '@angular/material';
+import { MapsAPILoader, MouseEvent } from '@agm/core';
 
 @Component({
   selector: 'app-sensor',
@@ -13,23 +14,30 @@ import {MatDialog, MatDialogConfig} from '@angular/material';
 })
 export class SensorComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private sensorService: SensorsService, public dialog: MatDialog) { }
+  constructor(private route: ActivatedRoute, private sensorService: SensorsService, public dialog: MatDialog, private ngZone: NgZone, private mapsAPILoader: MapsAPILoader) { }
   sensor: any;
   sensorID : string;
   latitude: number;
   longitude: number;
   zoom:number;
-
+  address: string;
+  private geoCoder;
+ 
+  @ViewChild('search', {static: false})
+  public searchElementRef: ElementRef;
+  
   ngOnInit() {
     this.sensorID = this.route.snapshot.params.id;
     console.log(this.sensorID);
 
     this.sensorService.getSensor(this.sensorID).subscribe((res) => {
       [this.sensor] = res;
-      console.log(this.sensor);
       this.setCurrentLocation();
     });
-
+    
+    this.mapsAPILoader.load().then(() => {
+      this.geoCoder = new google.maps.Geocoder;
+    });
   }
   
   dialogDelete() {
@@ -55,14 +63,17 @@ export class SensorComponent implements OnInit {
       tipo: this.sensor.tipo,
       tensao: this.sensor.tensao,
       valor_medido: this.sensor.ultima_medida,
-      latitude: this.sensor.latitude,
-      longitude: this.sensor.longitude
+      latitude: this.latitude,
+      longitude: this.longitude,
+      endereco: this.address
     };
 
     const dialogRef = this.dialog.open(EditDialogComponent, dialogConfig);
   }
+
   // Get Current Location Coordinates
   private setCurrentLocation() {
+    console.log(this.sensor);
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.latitude = this.sensor.latitude;
