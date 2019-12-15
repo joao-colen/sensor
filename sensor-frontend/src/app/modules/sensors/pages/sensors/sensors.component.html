@@ -1,56 +1,58 @@
-<!-- Title -->
-<div class="title-container">
-  <div class="d-flex justify-content-center align-items-center h-100">
-    <div class="d-flex pb-5 cursor-pointer">
-      <div class="title-text">
-        <div>
-          <span class="mat-display-3">Sensores</span>
+<div class="container py-5">
+
+  <!-- Title -->
+  <div class="title-container">
+    <div class="d-flex justify-content-center align-items-center h-100">
+      <div class="d-flex pb-5 cursor-pointer">
+        <div class="title-text">
+          <div>
+            <span class="mat-display-3">Sensores</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-<div class= "container">
-  <!-- Search -->
-  <div class="content-container d-flex justify-content-center">
-    <div class="d-flex align-items-center" style="width: 80%;">
-      <div class="d-flex align-items-center pr-3" style ="width: 5%">
-        <mat-icon>search</mat-icon>
-      </div>
-      <div style ="width: 95%">
-        <mat-form-field class="search-input" style="width: 100%;">
-          <input matInput placeholder="Search">
-        </mat-form-field>
+  
+  <div class= "container">
+    <!-- Search -->
+    <div class="content-container d-flex justify-content-center">
+      <div class="d-flex align-items-center" style="width: 80%;">
+        <div class="d-flex align-items-center pr-3" style ="width: 5%">
+          <mat-icon>search</mat-icon>
+        </div>
+        <div style ="width: 95%">
+          <mat-form-field class="search-input" style="width: 100%;">
+            <input matInput placeholder="Search">
+          </mat-form-field>
+        </div>
       </div>
     </div>
-  </div>
-
-  <!-- Sensors-->
-  <div class="pb-5">
-    <table mdbTable>
-      <thead class="black white-text">
-        <tr>
-          <th *ngFor="let head of displayedColumns" scope="col">{{head}} </th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr mdbTableCol *ngFor="let sensor of sensors" (click)="openDialog()" [routerLink]="[sensor.id]" >
-            <th scope="row">{{sensor.id}}</th>
-            <td>{{sensor.altura}}</td >
-            <td>{{sensor.largura}}</td>
-            <td>{{sensor.comprimento}}</td>
-            <td>{{sensor.tensao}}</td>
-            <td>{{sensor.marca}}</td>
-            <td>{{sensor.tipo}}</td>
-          </tr>
-      </tbody>
-    </table>
-  </div>
   
-  <div class="add-house-btn cursor-pointer mat-elevation-z4" matTooltip="Add new sensor" matTooltipPosition="left"
-    [routerLink]="['add']" matRipple>
-    <mat-icon class="add-house-icon">add</mat-icon>
+    <!-- Sensors-->
+    <div class="pb-5">
+      <table mdbTable>
+        <thead class="black white-text">
+          <tr>
+            <th *ngFor="let head of displayedColumns" scope="col">{{head}} </th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr mdbTableCol *ngFor="let sensor of sensors" [routerLink]="[sensor.id]" >
+              <th scope="row">{{sensor.id}}</th>
+              <td>{{sensor.altura}}</td >
+              <td>{{sensor.largura}}</td>
+              <td>{{sensor.comprimento}}</td>
+              <td>{{sensor.tensao}}</td>
+              <td>{{sensor.marca}}</td>
+              <td>{{sensor.tipo}}</td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="add-house-btn cursor-pointer mat-elevation-z4" matTooltip="Add new sensor" matTooltipPosition="left" (click)="dialogAdd()" 
+    matRipple>
+      <mat-icon class="add-house-icon">add</mat-icon>
+    </div>
   </div>
-</div>
-
+</div>  

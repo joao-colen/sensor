@@ -1,0 +1,13 @@
+<div class="container py-5">
+    <div class="row pt-5">
+        <strong>Você deseja realmente deletar esse sensor ?</strong>
+    </div>
+    <div class="row pt-5">
+        <div style="width:50%;">
+            <button style="width: 100%;" (click)='removeSensor()' [routerLink]="[sensors]"> Sim</button>
+        </div>
+        <div style="width:50%;">
+            <button style="width: 100%;" (click)='close()'> Não</button>
+        </div>
+    </div>
+</div>

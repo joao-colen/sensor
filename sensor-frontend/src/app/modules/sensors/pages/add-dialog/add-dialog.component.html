@@ -1,0 +1,40 @@
+<div class="example-container">
+    <h3 class="pb-5" style="text-align: center;">Adicione um novo sensor</h3>
+    <form class="example-container" [formGroup]="options">
+        <div>
+            <label>Selecione a tensão do sensor: </label>
+            <mat-radio-group formControlName="Tensao">
+                <mat-radio-button value="3">3V</mat-radio-button>
+                <mat-radio-button value="1.5">1.5V</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div>
+            <label>Selecione a marca do sensor: </label>
+            <mat-radio-group formControlName="Marca">
+                <mat-radio-button value="A1">A1</mat-radio-button>
+                <mat-radio-button value="B3">B3</mat-radio-button>
+                <mat-radio-button value="T10">T10</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div>
+            <label>Selecione o tamanho do sensor (Altura, largura, comprimento): </label>
+            <mat-radio-group formControlName="Tamanho">
+                <mat-radio-button value="A">3 3 3</mat-radio-button>
+                <mat-radio-button value="B">1 2 2</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div>
+            <label>Selecione o tipo do sensor: </label>
+            <mat-radio-group formControlName="Tipo">
+                <mat-radio-button value="temperatura">Temperatura</mat-radio-button>
+                <mat-radio-button value="corrente_eletrica">Corrente elétrica</mat-radio-button>
+                <mat-radio-button value="pressao">Pressão</mat-radio-button>
+                <mat-radio-button value="intensidade_luminosa">Intensidade luminosa</mat-radio-button>
+                <mat-radio-button value="aceleracao">Aceleração</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div>
+            <button class="btn btn-primary" (click)="addNewSensor()" [routerLink]="[sensors]"> Adicionar novo sensor</button>
+        </div>
+    </form>
+</div>

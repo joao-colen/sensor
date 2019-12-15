@@ -30,6 +30,22 @@ export class SensorsService {
         );
     }
 
+    addSensor(body: any): Observable<any> {
+      const url = this.baseUrl + '/sensors/add';
+      return this.http.post(url, body)
+      .pipe(
+        catchError(this.errorHandler)
+      );
+    }
+
+    deleteSensor(id: string): Observable<any> {
+      const url = this.baseUrl + '/sensors/remove/' + id;
+      return this.http.get(url)
+        .pipe(
+          catchError(this.errorHandler)
+        );
+    }
+
     // Error handling
     errorHandler(error: any) {
       let errorMessage = '';
