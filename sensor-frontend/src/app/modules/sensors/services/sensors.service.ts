@@ -30,6 +30,14 @@ export class SensorsService {
         );
     }
 
+    editSensor(id: string, body: any): Observable<any> {
+      const url = this.baseUrl + '/sensors/update/' + id; 
+      return this.http.put(url, body)
+        .pipe(
+          catchError(this.errorHandler)
+        );
+    }
+
     addSensor(body: any): Observable<any> {
       const url = this.baseUrl + '/sensors/add';
       return this.http.post(url, body)

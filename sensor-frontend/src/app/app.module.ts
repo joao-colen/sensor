@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MatAutocompleteModule, MatCheckboxModule, MatDatepickerModule, MatFormFieldModule, MatInputModule, MatRadioModule, MatSelectModule, MatSliderModule, MatSlideToggleModule, MatMenuModule, MatSidenavModule, MatToolbarModule, MatCardModule, MatDividerModule, MatExpansionModule, MatGridListModule, MatListModule, MatStepperModule, MatTabsModule, MatTreeModule, MatButtonModule, MatButtonToggleModule, MatBadgeModule, MatChipsModule, MatIconModule, MatProgressSpinnerModule, MatProgressBarModule, MatBottomSheetModule, MatSnackBarModule, MatTooltipModule, MatPaginatorModule, MatSortModule, MatRippleModule, MatDialogModule, MatTableModule } from '@angular/material';
 import { AddDialogComponent } from './modules/sensors/pages/add-dialog/add-dialog.component';
+import { EditDialogComponent } from './modules/sensors/pages/edit-dialog/edit-dialog.component';
 
 @NgModule({
   declarations: [
@@ -19,11 +20,13 @@ import { AddDialogComponent } from './modules/sensors/pages/add-dialog/add-dialo
     SensorsComponent,
     SensorComponent,
     DeleteDialogComponent,
-    AddDialogComponent
+    AddDialogComponent,
+    EditDialogComponent
   ],
   entryComponents: [ 
     DeleteDialogComponent,
-    AddDialogComponent
+    AddDialogComponent,
+    EditDialogComponent
   ],
   imports: [
     BrowserModule,

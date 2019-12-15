@@ -92,7 +92,7 @@
                           <td>{{sensor.comprimento}}</td>
                           <td>{{sensor.tensao}}</td>
                           <td>{{sensor.marca}}</td>
-                          <td><mat-icon class="add-house-icon">edit</mat-icon></td>
+                          <td><mat-icon class="add-house-icon" (click)="dialogEdit()">edit</mat-icon></td>
                           <td><mat-icon class="add-house-icon" (click)="dialogDelete()">clear</mat-icon></td>
                         </tr>
                     </tbody>

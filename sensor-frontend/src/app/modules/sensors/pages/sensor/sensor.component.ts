@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SensorsService } from '../../services/sensors.service';
 import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
+import { EditDialogComponent } from '../edit-dialog/edit-dialog.component';
 import { SensorsComponent } from '../sensors/sensors.component';
 import {MatDialog, MatDialogConfig} from '@angular/material';
 
@@ -32,5 +33,24 @@ export class SensorComponent implements OnInit {
       id: this.sensorID
     };
     const dialogRef = this.dialog.open(DeleteDialogComponent, dialogConfig);
+  }
+
+  dialogEdit() {
+    const dialogConfig = new MatDialogConfig();
+    let tamanho
+    if(this.sensor.altura == 3) {
+      tamanho = 'A';
+    } else {
+      tamanho = 'B';
+    }
+    dialogConfig.data = {
+      id: this.sensorID,
+      tamanho: tamanho,
+      marca: this.sensor.marca,
+      tipo: this.sensor.tipo,
+      tensao: this.sensor.tensao
+    };
+
+    const dialogRef = this.dialog.open(EditDialogComponent, dialogConfig);
   }
 }
