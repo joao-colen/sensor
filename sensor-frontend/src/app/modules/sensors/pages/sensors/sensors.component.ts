@@ -51,7 +51,6 @@ export class SensorsComponent implements OnInit {
       this.previous = this.mdbTable.getDataSource(); 
       this.elements = this.sensors;
     });
-
   }
 
   searchItems() { 

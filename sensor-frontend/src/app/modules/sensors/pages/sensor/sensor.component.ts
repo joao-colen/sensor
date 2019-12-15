@@ -16,6 +16,9 @@ export class SensorComponent implements OnInit {
   constructor(private route: ActivatedRoute, private sensorService: SensorsService, public dialog: MatDialog) { }
   sensor: any;
   sensorID : string;
+  latitude: number;
+  longitude: number;
+  zoom:number;
 
   ngOnInit() {
     this.sensorID = this.route.snapshot.params.id;
@@ -24,7 +27,9 @@ export class SensorComponent implements OnInit {
     this.sensorService.getSensor(this.sensorID).subscribe((res) => {
       [this.sensor] = res;
       console.log(this.sensor);
+      this.setCurrentLocation();
     });
+
   }
   
   dialogDelete() {
@@ -55,5 +60,15 @@ export class SensorComponent implements OnInit {
     };
 
     const dialogRef = this.dialog.open(EditDialogComponent, dialogConfig);
+  }
+  // Get Current Location Coordinates
+  private setCurrentLocation() {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.latitude = this.sensor.latitude;
+        this.longitude = this.sensor.longitude;
+        this.zoom = 15;
+      });
+    }
   }
 }
