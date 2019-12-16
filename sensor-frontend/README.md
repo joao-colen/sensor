@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `git clone` on `https://github.com/joao-colen/sensor.git` to download the project of SensorFrontend
 
-Go to the folder of the project with `cd sensor-frontend/sensor` 
+Go to the folder of the project with `cd /sensor/sensor-frontend` 
 
 Run `npm install` to install all the dependencies
 
@@ -16,6 +16,6 @@ It requires [Angular CLI](https://github.com/angular/angular-cli) to run the pro
 
 ## Usage
 
-Go to the folder of the project with `cd sensor-frontend`
+Go to the folder of the project with `cd /sensor/sensor-frontend`
 
 Run `ng serve` to start SensorFrontend
