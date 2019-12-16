@@ -94,7 +94,6 @@ export class AddDialogComponent implements OnInit {
       endereco: this.address
     }
 
-    console.log(body);
     this.sensorService.addSensor(body).subscribe((res) => {
       this.dialogRef.close();
     });
@@ -114,8 +113,6 @@ export class AddDialogComponent implements OnInit {
   
     getAddress(latitude, longitude) {
       this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, (results, status) => {
-        console.log(results);
-        console.log(status);
         if (status === 'OK') {
           if (results[0]) {
             this.zoom = 15;

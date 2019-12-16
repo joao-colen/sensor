@@ -19,3 +19,5 @@ It requires [Angular CLI](https://github.com/angular/angular-cli) to run the pro
 Go to the folder of the project with `cd /sensor/sensor-frontend`
 
 Run `ng serve` to start SensorFrontend
+
+Navigate to `http://localhost:4200/` and see the app

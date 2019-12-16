@@ -28,7 +28,6 @@ export class SensorComponent implements OnInit {
   
   ngOnInit() {
     this.sensorID = this.route.snapshot.params.id;
-    console.log(this.sensorID);
 
     this.sensorService.getSensor(this.sensorID).subscribe((res) => {
       [this.sensor] = res;
@@ -73,7 +72,6 @@ export class SensorComponent implements OnInit {
 
   // Get Current Location Coordinates
   private setCurrentLocation() {
-    console.log(this.sensor);
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.latitude = this.sensor.latitude;

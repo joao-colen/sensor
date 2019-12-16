@@ -15,7 +15,6 @@ export class SensorsService {
     // Get homes
     getSensors(): Observable<any> {
       const url = this.baseUrl + '/sensors';
-      console.log(url);
       return this.http.get(url)
         .pipe(
           catchError(this.errorHandler)

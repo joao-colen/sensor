@@ -97,7 +97,7 @@ export class EditDialogComponent implements OnInit {
       longitude: this.longitude,
       endereco: this.address
     }
-    console.log(body);
+
     this.sensorService.editSensor(this.sensorID, body).subscribe((res) => {
       this.dialogRef.close();
     });
@@ -117,8 +117,6 @@ export class EditDialogComponent implements OnInit {
   
     getAddress(latitude, longitude) {
       this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, (results, status) => {
-        console.log(results);
-        console.log(status);
         if (status === 'OK') {
           if (results[0]) {
             this.zoom = 15;
