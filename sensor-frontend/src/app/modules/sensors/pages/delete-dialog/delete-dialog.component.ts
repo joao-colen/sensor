@@ -18,11 +18,14 @@ export class DeleteDialogComponent implements OnInit {
   ngOnInit() {
   }
 
+  // function to remove Sensor
   removeSensor() {
     this.sensorService.deleteSensor(this.sensorID).subscribe((res) => {
       this.dialogRef.close();
     });
   }
+
+  // function to cancel action of removing the sensor
   close() {
     this.dialogRef.close();
   }

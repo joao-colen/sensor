@@ -39,6 +39,7 @@ export class SensorComponent implements OnInit {
     });
   }
   
+  // open Delete Dialog
   dialogDelete() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = {
@@ -47,6 +48,7 @@ export class SensorComponent implements OnInit {
     const dialogRef = this.dialog.open(DeleteDialogComponent, dialogConfig);
   }
 
+  // open Edit Dialog
   dialogEdit() {
     const dialogConfig = new MatDialogConfig();
     let tamanho
@@ -70,7 +72,7 @@ export class SensorComponent implements OnInit {
     const dialogRef = this.dialog.open(EditDialogComponent, dialogConfig);
   }
 
-  // Get Current Location Coordinates
+  // Get the location of the sensor
   private setCurrentLocation() {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {

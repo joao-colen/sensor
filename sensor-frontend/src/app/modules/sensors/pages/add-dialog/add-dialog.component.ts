@@ -14,6 +14,7 @@ export class AddDialogComponent implements OnInit {
   ngOnInit() {
     this.setCurrentLocation();
 
+    // Load GoogleMaps
     this.mapsAPILoader.load().then(() => {
       this.setCurrentLocation();
       this.geoCoder = new google.maps.Geocoder;
@@ -66,6 +67,7 @@ export class AddDialogComponent implements OnInit {
   @ViewChild('search', {static: false})
   public searchElementRef: ElementRef;
 
+  // function to add a new sensor
   addNewSensor() {
     let altura: any;
     let largura: any;
@@ -93,14 +95,14 @@ export class AddDialogComponent implements OnInit {
       longitude: this.longitude,
       endereco: this.address
     }
-
+    // call addSensor on sensors services
     this.sensorService.addSensor(body).subscribe((res) => {
       this.dialogRef.close();
     });
     window.location.reload()
   }
 
-     // Get Current Location Coordinates
+     // Get Location of the sensor
      private setCurrentLocation() {
       if ('geolocation' in navigator) {
         navigator.geolocation.getCurrentPosition((position) => {
@@ -111,6 +113,7 @@ export class AddDialogComponent implements OnInit {
       }
     }
   
+    // Get Address from latitude and longitude
     getAddress(latitude, longitude) {
       this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, (results, status) => {
         if (status === 'OK') {

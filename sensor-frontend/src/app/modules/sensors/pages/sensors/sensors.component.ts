@@ -37,11 +37,10 @@ export class SensorsComponent implements OnInit {
   constructor(private sensorService: SensorsService, public dialog: MatDialog) {
   }
   
-  @HostListener('input') oninput() { 
-    this.searchItems();
-  }
-  
+  // collumns of the table
   displayedColumns: string[] = ['id', 'Marca', 'Tipo', 'Última Medida', 'Endereço'];
+  
+  // data of the rows 
   dataSource = this.sensors;
   
   ngOnInit() {
@@ -53,18 +52,7 @@ export class SensorsComponent implements OnInit {
     });
   }
 
-  searchItems() { 
-    const prev = this.mdbTable.getDataSource();
-    if (!this.searchText) {
-      this.mdbTable.setDataSource(this.previous); 
-      this.elements = this.mdbTable.getDataSource(); 
-    } 
-    if (this.searchText) { 
-      this.elements = this.mdbTable.searchLocalDataBy(this.searchText);
-      this.mdbTable.setDataSource(prev); 
-    } 
-  } 
-
+  // Open Add Dialog
   dialogAdd() {
     const dialogRef = this.dialog.open(AddDialogComponent);
   }

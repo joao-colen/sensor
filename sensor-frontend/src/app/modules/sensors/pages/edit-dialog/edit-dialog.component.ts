@@ -68,9 +68,8 @@ export class EditDialogComponent implements OnInit {
       });
     });
   }
-
   
-
+  // function to edit sensor
   editSensor() {
     let altura: any;
     let largura: any;
@@ -98,13 +97,14 @@ export class EditDialogComponent implements OnInit {
       endereco: this.address
     }
 
+    // call the editSensor on sensor services
     this.sensorService.editSensor(this.sensorID, body).subscribe((res) => {
       this.dialogRef.close();
     });
     window.location.reload()
   }
 
-    // Get Current Location Coordinates
+    // Get the location of the sensor
     private setCurrentLocation() {
       if ('geolocation' in navigator) {
         navigator.geolocation.getCurrentPosition((position) => {
@@ -115,6 +115,7 @@ export class EditDialogComponent implements OnInit {
       }
     }
   
+    // Get Address from latitude and longitude
     getAddress(latitude, longitude) {
       this.geoCoder.geocode({ 'location': { lat: latitude, lng: longitude } }, (results, status) => {
         if (status === 'OK') {
@@ -127,7 +128,6 @@ export class EditDialogComponent implements OnInit {
         } else {
           window.alert('Geocoder failed due to: ' + status);
         }
-   
       });
     }
 
